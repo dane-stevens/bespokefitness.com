@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import H1 from "../components/H1.astro";
+import { Image } from "@astrojs/image/components";
+---
+
+<Layout title="Personal Training & Massage Therapy - Bespoke Fitness">
+  <div class="lg:h-[86vh] overflow-hidden flex items-center relative">
+    <Image
+      src={import("../assets/images/IMG_9083.jpeg")}
+      width={1920}
+      alt="test"
+    />
+    <div
+      class="absolute top-0 left-0 right-0 bottom-0 bg-black/50 flex items-center justify-center"
+    >
+      <div class="max-w-screen-xl flex justify-center">
+        <div class="text-center">
+          <h1 class="text-3xl md:text-4xl lg:text-7xl uppercase">
+            <div>Bespoke Fitness</div>
+          </h1>
+          <div class="mt-8">
+            Muskoka's Premier Boutique Fitness Studio, Massage Therapy &
+            Manually Osteopathy Clinic
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

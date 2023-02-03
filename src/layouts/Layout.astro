@@ -1,0 +1,67 @@
+---
+import Logo from "../components/Logo.astro";
+import { Icon } from "astro-icon";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const linkStyles =
+  "flex items-center gap-2 rounded hover:bg-zinc-800 px-4 py-2 leading-6 group";
+const iconStyles = "w-6 h-6 text-zinc-600 group-hover:text-red-400";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-zinc-900 text-slate-50">
+    <header class="border-b border-zinc-800">
+      <div
+        class="flex justify-center md:justify-between max-w-screen-xl p-8 mx-auto items-center h-[80px]"
+      >
+        <a href="/" class="block"
+          ><Logo fill={`white`} className="h-[60px] w-[200px]" /></a
+        >
+        <nav class="gap-8 items-center justify-end hidden lg:flex">
+          <!-- <a
+            href="/"
+            class="flex items-center gap-2 rounded hover:bg-zinc-800 px-4 py-2 leading-6"
+            ><Icon name="mdi:home" class="w-6 h-6 text-zinc-600" />Home</a
+            > -->
+          <a href="tel:+15192163749" class={linkStyles}
+            ><Icon name="mdi:phone" class={iconStyles} />Call us</a
+          >
+          <a href="sms:+15192163749" class={linkStyles}
+            ><Icon name="mdi:message-reply-text" class={iconStyles} />Text us</a
+          >
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://maps.apple.com/?daddr=7-205 Margaret Gravenhurst Ontario P1P 1S7`"
+            class={linkStyles}
+            ><Icon name="mdi:location" class={iconStyles} />Get directions</a
+          >
+          <a
+            target="_blank"
+            href="https://dsmedia.noterro.com"
+            class="bg-red-700 py-2 px-4 rounded hover:bg-red-800 leading-6 flex items-center gap-2 group"
+            ><Icon
+              name="ant-design:schedule-outlined"
+              class="w-6 h-6 text-red-400 group-hover:text-red-300"
+            />Book now</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main class="">
+      <slot />
+    </main>
+  </body>
+</html>
