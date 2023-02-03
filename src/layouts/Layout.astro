@@ -8,8 +8,8 @@ export interface Props {
 
 const { title } = Astro.props;
 const linkStyles =
-  "flex items-center gap-2 rounded hover:bg-zinc-800 px-4 py-2 leading-6 group";
-const iconStyles = "w-6 h-6 text-zinc-600 group-hover:text-red-400";
+  "text-sm md:text-md md:flex items-center gap-2 rounded hover:bg-zinc-800 px-4 py-2 leading-6 group";
+const iconStyles = "w-6 h-6 text-zinc-600 group-hover:text-red-400 mx-auto";
 ---
 
 <!DOCTYPE html>
@@ -34,26 +34,14 @@ const iconStyles = "w-6 h-6 text-zinc-600 group-hover:text-red-400";
         <nav
           class="gap-2 lg:gap-8 items-center justify-center lg:justify-end flex mt-8 lg:mt-0"
         >
-          <a
-            href="/"
-            class="flex items-center gap-2 rounded hover:bg-zinc-800 px-4 py-2 leading-6"
-            ><Icon name="mdi:home" class="w-6 h-6 text-zinc-600" />Home</a
+          <a href="/" class={linkStyles}
+            ><Icon name="mdi:home" class={iconStyles} />Home</a
           >
-          <a
-            href="/services"
-            class="flex items-center gap-2 rounded hover:bg-zinc-800 px-4 py-2 leading-6"
-            ><Icon
-              name="tabler:massage"
-              class="w-6 h-6 text-zinc-600"
-            />Services</a
+          <a href="/services" class={linkStyles}
+            ><Icon name="tabler:massage" class={iconStyles} />Services</a
           >
-          <a
-            href="/pricing"
-            class="flex items-center gap-2 rounded hover:bg-zinc-800 px-4 py-2 leading-6"
-            ><Icon
-              name="mdi:currency-usd"
-              class="w-6 h-6 text-zinc-600"
-            />Pricing</a
+          <a href="/pricing" class={linkStyles}
+            ><Icon name="mdi:currency-usd" class={iconStyles} />Pricing</a
           >
           <!-- <a href="tel:+17057039470" class={linkStyles}
             ><Icon name="mdi:phone" class={iconStyles} /><span
@@ -77,10 +65,10 @@ const iconStyles = "w-6 h-6 text-zinc-600 group-hover:text-red-400";
           <a
             target="_blank"
             href="https://dsmedia.noterro.com"
-            class="bg-red-700 py-2 px-4 rounded hover:bg-red-800 leading-6 flex items-center gap-2 group"
+            class="bg-red-700 py-2 px-4 rounded hover:bg-red-800 leading-6 md:flex items-center gap-2 group"
             ><Icon
               name="ant-design:schedule-outlined"
-              class="w-6 h-6 text-red-400 group-hover:text-red-300"
+              class="w-6 h-6 text-red-400 group-hover:text-red-300 mx-auto"
             />Book now</a
           >
         </nav>
