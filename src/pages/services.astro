@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "@astrojs/image/components";
+import Hero from "~/components/Hero.astro";
+import image from "~/assets/images/IMG_9083.jpeg";
+import H1 from "~/components/H1.astro";
+import Body from "~/components/Body.astro";
+---
+
+<Layout title="Personal Training & Massage Therapy - Bespoke Fitness">
+  <Hero
+    title="Services"
+    subtitle="Massage Therapy - Manual Osteopathy - Personal / Rehabilitative Training - Shotokan Karate"
+  >
+    <Image src={image} width={1920} alt="Massage therapy" />
+  </Hero>
+  <Body>Coming soon...</Body>
+</Layout>

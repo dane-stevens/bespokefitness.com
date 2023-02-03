@@ -8,8 +8,11 @@ export interface Props {
 
 const { title } = Astro.props;
 const linkStyles =
-  "text-sm md:text-md md:flex items-center gap-2 rounded hover:bg-zinc-800 px-4 py-2 leading-6 group";
-const iconStyles = "w-6 h-6 text-zinc-600 group-hover:text-red-400 mx-auto";
+  "text-sm md:text-md md:flex items-center gap-2 rounded hover:bg-zinc-800 px-4 py-2 leading-6 group border-2";
+const iconStyles = "w-6 h-6 group-hover:text-red-400 mx-auto";
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
 <!DOCTYPE html>
@@ -35,14 +38,45 @@ const iconStyles = "w-6 h-6 text-zinc-600 group-hover:text-red-400 mx-auto";
         <nav
           class="gap-2 lg:gap-8 items-center justify-center lg:justify-end flex mt-8 lg:mt-0"
         >
-          <a href="/" class={linkStyles}
-            ><Icon name="mdi:home" class={iconStyles} />Home</a
+          <a
+            href="/"
+            class={`${
+              currentPath === "" ? "border-red-400" : "border-transparent"
+            } ${linkStyles}`}
+            ><Icon
+              name="mdi:home"
+              class={`${
+                currentPath === "" ? "text-red-400" : "text-zinc-600"
+              } ${iconStyles}`}
+            />Home</a
           >
-          <a href="/services" class={linkStyles}
-            ><Icon name="tabler:massage" class={iconStyles} />Services</a
+          <a
+            href="/services"
+            class={`${
+              currentPath === "services"
+                ? "border-red-400"
+                : "border-transparent"
+            } ${linkStyles}`}
+            ><Icon
+              name="tabler:massage"
+              class={`${
+                currentPath === "services" ? "text-red-400" : "text-zinc-600"
+              } ${iconStyles}`}
+            />Services</a
           >
-          <a href="/pricing" class={linkStyles}
-            ><Icon name="mdi:currency-usd" class={iconStyles} />Pricing</a
+          <a
+            href="/pricing"
+            class={`${
+              currentPath === "pricing"
+                ? "border-red-400"
+                : "border-transparent"
+            } ${linkStyles}`}
+            ><Icon
+              name="mdi:currency-usd"
+              class={`${
+                currentPath === "pricing" ? "text-red-400" : "text-zinc-600"
+              } ${iconStyles}`}
+            />Pricing</a
           >
           <!-- <a href="tel:+17057039470" class={linkStyles}
             ><Icon name="mdi:phone" class={iconStyles} /><span
