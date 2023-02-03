@@ -9,15 +9,17 @@ const { links } = Astro.props;
     <div class="uppercase text-xs text-zinc-400 tracking-wide px-4">
       On this page:
     </div>
-    {
-      links?.map((link) => (
-        <a
-          href={link.href}
-          class="block px-4 py-2 hover:bg-zinc-900 rounded text-sm tracking-wide border border-zinc-700"
-        >
-          {link.title}
-        </a>
-      ))
-    }
+    <div class="flex items-center gap-2 overflow-y-auto">
+      {
+        links?.map((link) => (
+          <a
+            href={link.href}
+            class="block px-4 py-2 hover:bg-zinc-900 rounded text-sm tracking-wide border border-zinc-700 whitespace-nowrap"
+          >
+            {link.title}
+          </a>
+        ))
+      }
+    </div>
   </div>
 </div>
