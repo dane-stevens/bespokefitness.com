@@ -1,0 +1,21 @@
+---
+const { title, subtitle } = Astro.props;
+---
+
+<section class="lg:h-[86vh] overflow-hidden flex items-center relative">
+  <slot />
+  <div
+    class="absolute top-0 left-0 right-0 bottom-0 bg-black/50 flex items-center justify-center"
+  >
+    <div class="max-w-screen-xl flex justify-center">
+      <div class="text-center">
+        <h1 class="text-3xl md:text-4xl lg:text-7xl uppercase">
+          <div>{title}</div>
+        </h1>
+        <div class="mt-8">
+          {subtitle}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

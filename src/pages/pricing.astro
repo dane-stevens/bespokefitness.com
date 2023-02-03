@@ -1,0 +1,85 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import H1 from "~/components/H1.astro";
+import { Image } from "@astrojs/image/components";
+import Hero from "~/components/Hero.astro";
+import image from "~/assets/images/woman-having-abdomen-massage-by-professional-osteopathy-therapist.jpg";
+import { Heading, Price, PriceContainer } from "~/components/Price";
+import Body from "~/components/Body.astro";
+import HR from "~/components/HR.astro";
+import SubNav from "~/components/SubNav.astro";
+---
+
+<Layout title="Personal Training & Massage Therapy - Bespoke Fitness">
+  <Hero
+    title="Pricing"
+    subtitle="Muskoka's Premier Boutique Fitness Studio, Massage Therapy & Manually Osteopathy Clinic"
+  >
+    <Image src={image} width={1920} alt="Massage therapy" />
+  </Hero>
+  <SubNav
+    links={[
+      {
+        href: "#massage-therapy-and-osteopathy",
+        title: "Massage & Osteopathy",
+      },
+      {
+        href: "#personal-rehabilitative-training",
+        title: "Personal / Rehabilitative Training",
+      },
+      {
+        href: "#in-home-massage-therapy",
+        title: "In-home Massage Therapy",
+      },
+    ]}
+  />
+  <Body>
+    <PriceContainer
+      id="massage-therapy-and-osteopathy"
+      client:load
+      title="Massage Therapy & Manual Osteopathy"
+      durations={[30, 45, 60, 75, 90]}
+      defaultDurationIndex={2}
+      prices={[
+        [65, 85, 100, 125, 145],
+        [60, 75, 90, 110, 130],
+        [55, 70, 85, 100, 120],
+      ]}
+    />
+    <HR />
+    <PriceContainer
+      id="personal-rehabilitative-training"
+      client:load
+      title="Personal / Rehabilitative Training"
+      durations={[30, 45, 60]}
+      defaultDurationIndex={1}
+      prices={[
+        [60, 70, 90],
+        [55, 65, 85],
+        [50, 60, 75],
+      ]}
+    />
+    <HR />
+    <Heading id="in-home-massage-therapy" title="In-home Massage Therapy" />
+    <div
+      class="grid md:grid-cols-2 gap-8 md:gap-16 mt-8 max-w-screen-lg mx-auto"
+    >
+      <Price
+        title="0-20 Minutes"
+        subtitle="Away from clinic"
+        hour
+        price={145}
+        href="sms:17052420323&body=Hello%2C%20I%20am%20looking%20for%20information%20on%20in-home%20massage%20therapy."
+        buttonText="Request information"
+      />
+      <Price
+        title="21-60 Minutes"
+        subtitle="Away from clinic"
+        hour
+        customPrice={"$150-190"}
+        href="sms:17052420323&body=Hello%2C%20I%20am%20looking%20for%20information%20on%20in-home%20massage%20therapy."
+        buttonText="Request information"
+      />
+    </div>
+  </Body>
+</Layout>
