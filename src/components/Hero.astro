@@ -2,15 +2,17 @@
 const { title, subtitle } = Astro.props;
 ---
 
-<section class="lg:h-[86vh] overflow-hidden flex items-center relative">
+<section
+  class="relative flex h-[30vh] items-center overflow-hidden sm:h-[40vh] md:h-[60vh] lg:h-[80vh]"
+>
   <slot />
   <div
-    class="absolute top-0 left-0 right-0 bottom-0 bg-black/50 flex items-center justify-center"
+    class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black/50 text-slate-50"
   >
-    <div class="max-w-screen-xl flex justify-center">
+    <div class="flex max-w-screen-xl justify-center">
       <div class="text-center">
-        <h1 class="text-3xl md:text-4xl lg:text-7xl uppercase">
-          <div>{title}</div>
+        <h1 class="text-3xl uppercase md:text-4xl lg:text-7xl">
+          {title}
         </h1>
         <div class="mt-8">
           {subtitle}

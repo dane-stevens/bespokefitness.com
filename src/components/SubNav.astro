@@ -2,24 +2,30 @@
 const { links } = Astro.props;
 ---
 
-<div class="bg-zinc-800 sticky top-0 border-b border-zinc-900 z-10">
-  <div
-    class="max-w-screen-xl mx-auto px-4 grid md:flex justify-center items-center py-2 gap-2 text-center"
-  >
-    <div class="uppercase text-xs text-zinc-400 tracking-wide px-4">
-      On this page:
-    </div>
-    <div class="flex items-center gap-2 overflow-y-auto">
-      {
-        links?.map((link) => (
-          <a
-            href={link.href}
-            class="block px-4 py-2 hover:bg-zinc-900 rounded text-sm tracking-wide border border-zinc-700 whitespace-nowrap"
-          >
-            {link.title}
-          </a>
-        ))
-      }
+<div
+  class="bg-zinc-200/80 dark:bg-zinc-900/80 backdrop-blur-sm sticky top-0 border-b border-zinc-300 dark:border-zinc-800 shadow z-10"
+>
+  <div class="dark:bg-black/20">
+    <div
+      class="max-w-screen-xl mx-auto px-4 grid md:flex justify-center items-center py-2 gap-2 text-center"
+    >
+      <div
+        class="uppercase text-xs text-zinc-700 dark:text-zinc-400 tracking-wide px-4"
+      >
+        On this page:
+      </div>
+      <div class="flex items-center gap-2 overflow-y-auto">
+        {
+          links?.map((link) => (
+            <a
+              href={link.href}
+              class="block px-4 py-2 hover:bg-zinc-300 dark:hover:bg-zinc-900 rounded text-sm tracking-wide border border-zinc-400 dark:border-zinc-700 whitespace-nowrap"
+            >
+              {link.title}
+            </a>
+          ))
+        }
+      </div>
     </div>
   </div>
 </div>

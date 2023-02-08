@@ -1,14 +1,19 @@
 ---
 import Logo from "../components/Logo.astro";
 import { Icon } from "astro-icon";
+import ThemeToggle from "~/components/ThemeToggle";
+import { FormatPhone } from "~/components/FormatPhone";
 
 export interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+const topLinkStyles =
+  "text-xs md:text-md md:flex items-center gap-2   px-4 py-1 md:py-2 leading-6 group text-zinc-300 hover:bg-zinc-800";
+const topIconStyles = "w-6 h-6 group-hover:text-red-400 mx-auto text-zinc-500";
 const linkStyles =
-  "text-sm md:text-md md:flex items-center gap-2 rounded hover:bg-zinc-800 px-4 py-2 leading-6 group border-2";
+  "text-sm md:text-md md:flex items-center gap-2 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 px-4 py-2 leading-6 group";
 const iconStyles = "w-6 h-6 group-hover:text-red-400 mx-auto";
 
 const pathname = new URL(Astro.request.url).pathname;
@@ -25,33 +30,82 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-zinc-900 text-zinc-100">
-    <header class="border-b border-zinc-800">
+  <body class="bg-zinc-50 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
+    <header class="border-b border-zinc-300 dark:border-zinc-800">
+      <div class="flex justify-between bg-zinc-900 px-4 dark:bg-zinc-800">
+        <div class="w-[30px]"></div>
+        <div class="flex items-center justify-center gap-8">
+          <div
+            class={`items-center gap-2 text-xs  px-4 py-1 md:py-2 leading-6 text-zinc-300 hidden md:flex`}
+          >
+            <Icon name="mdi:phone" class={topIconStyles} />
+            Call or text: <FormatPhone />
+          </div>
+          <a
+            href={`tel:+${import.meta.env.PUBLIC_PHONE_NUMBER}`}
+            class={`${topLinkStyles} md:hidden`}
+            ><Icon name="mdi:phone" class={topIconStyles} /><span
+              class="hidden md:inline">Call us</span
+            ><span class="inline tracking-wide text-zinc-500 md:hidden"
+              >Call</span
+            ></a
+          >
+          <a
+            href={`sms:+${import.meta.env.PUBLIC_PHONE_NUMBER}`}
+            class={`${topLinkStyles} md:hidden`}
+            ><Icon name="mdi:message-reply-text" class={topIconStyles} /><span
+              class="hidden md:inline">Text us</span
+            ><span class="inline tracking-wide text-zinc-500 md:hidden"
+              >Text</span
+            ></a
+          >
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://maps.apple.com/?daddr=7-205 Margaret Gravenhurst Ontario P1P 1S7`"
+            class={topLinkStyles}
+            ><Icon name="mdi:location" class={topIconStyles} /><span
+              class="hidden md:inline">Get directions</span
+            ><span class="inline tracking-wide text-zinc-500 md:hidden"
+              >Directions</span
+            ></a
+          >
+        </div>
+        <div class="flex w-[30px] items-center">
+          <ThemeToggle client:load />
+        </div>
+      </div>
       <div
-        class="lg:flex justify-center lg:justify-between max-w-screen-xl p-4 md:p-8 mx-auto items-center lg:h-[80px]"
+        class="mx-auto max-w-screen-xl items-center justify-center p-4 md:p-8 lg:flex lg:h-[80px] lg:justify-between"
       >
         <div class="flex justify-center">
           <a href="/" class="block"
-            ><Logo fill={`white`} className="h-[60px] w-[200px]" /></a
+            ><Logo
+              className="h-[60px] w-[200px] mt-2"
+              fill="fill-black/70 dark:fill-white"
+            /></a
           >
         </div>
         <nav
-          class="gap-2 lg:gap-8 items-center justify-center lg:justify-end flex mt-8 lg:mt-0"
+          class="mt-6 flex items-center justify-between lg:mt-0 lg:justify-end lg:gap-8"
         >
-          <a
-            href="/"
-            class={`${
-              currentPath === "" ? "border-red-400" : "border-transparent"
-            } ${linkStyles}`}
+          <!-- <ThemeToggle client:load /> -->
+          <a href="/" class={`${linkStyles}`}
             ><Icon
               name="mdi:home"
               class={`${
-                currentPath === "" ? "text-red-400" : "text-zinc-600"
+                currentPath === ""
+                  ? "text-red-400"
+                  : "text-zinc-400 dark:text-zinc-600"
               } ${iconStyles}`}
-            />Home</a
+            /><span
+              class={`border-b-2 mt-[2px]  py-1 md:py-0 ${
+                currentPath === "" ? "border-red-400" : "border-transparent"
+              }`}>Home</span
+            ></a
           >
           <a
-            href="/services"
+            href="/services/"
             class={`${
               currentPath === "services"
                 ? "border-red-400"
@@ -60,12 +114,20 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
             ><Icon
               name="tabler:massage"
               class={`${
-                currentPath === "services" ? "text-red-400" : "text-zinc-600"
+                currentPath === "services"
+                  ? "text-red-400"
+                  : "text-zinc-400 dark:text-zinc-600"
               } ${iconStyles}`}
-            />Services</a
+            /><span
+              class={`border-b-2 mt-[2px]  py-1 md:py-0 ${
+                currentPath === "services"
+                  ? "border-red-400"
+                  : "border-transparent"
+              }`}>Services</span
+            ></a
           >
           <a
-            href="/pricing"
+            href="/pricing/"
             class={`${
               currentPath === "pricing"
                 ? "border-red-400"
@@ -74,9 +136,17 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
             ><Icon
               name="mdi:currency-usd"
               class={`${
-                currentPath === "pricing" ? "text-red-400" : "text-zinc-600"
+                currentPath === "pricing"
+                  ? "text-red-400"
+                  : "text-zinc-400 dark:text-zinc-600"
               } ${iconStyles}`}
-            />Pricing</a
+            /><span
+              class={`border-b-2 mt-[2px] py-1 md:py-0 ${
+                currentPath === "pricing"
+                  ? "border-red-400"
+                  : "border-transparent"
+              }`}>Pricing</span
+            ></a
           >
           <!-- <a href="tel:+17057039470" class={linkStyles}
             ><Icon name="mdi:phone" class={iconStyles} /><span
@@ -99,8 +169,8 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
           > -->
           <a
             target="_blank"
-            href="https://dsmedia.noterro.com"
-            class="bg-red-700 py-2 px-4 rounded hover:bg-red-800 leading-6 md:flex items-center gap-2 group"
+            href={import.meta.env.PUBLIC_BOOKING_URL}
+            class="group items-center gap-2 rounded bg-red-700 py-2 px-4 leading-6 text-slate-50 hover:bg-red-800 md:flex"
             ><Icon
               name="ant-design:schedule-outlined"
               class="w-6 h-6 text-red-400 group-hover:text-red-300 mx-auto"
@@ -112,5 +182,91 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
     <main class="">
       <slot />
     </main>
+    <footer class="mt-16 border-t border-zinc-200 py-16 dark:border-zinc-800">
+      <div class="mx-auto max-w-screen-xl px-4">
+        <div
+          class="grid justify-evenly gap-16 text-center md:flex md:text-left"
+        >
+          <div>
+            <a href="/" class="inline-block"
+              ><Logo
+                className="h-[40px] w-[130px] mt-2"
+                fill="fill-red-500"
+              /></a
+            >
+
+            <p class="py-4">
+              We provide the highest quality professional services in health &
+              wellness and lifestyle balance.
+            </p>
+            <div class="flex justify-center gap-2 md:justify-start">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.facebook.com/bespokefitnessmuskoka"
+                ><Icon name="mdi:facebook" class="w-6 h-6 text-zinc-500" /></a
+              >
+            </div>
+            <div
+              class="mt-8 hidden text-sm text-zinc-600 dark:text-zinc-400 md:block"
+            >
+              &copy; {new Date().getFullYear()} Bespoke Fitness. All Rights Reserved.
+            </div>
+          </div>
+          <div>
+            <h4 class="text-sm uppercase text-zinc-500">Hours</h4>
+            <ul>
+              <li class="whitespace-nowrap">Tuesday - Friday: 9am - 5pm</li>
+              <li class="whitespace-nowrap">Saturday: 10am - 1pm</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-sm uppercase text-zinc-500">Services</h4>
+            <ul>
+              <li>
+                <a href="/services/#registered-massage-therapy"
+                  >Registered Massage Therapy</a
+                >
+              </li>
+              <li>
+                <a href="/services/#manual-osteopathy">Manual Osteopathy</a>
+              </li>
+              <li>
+                <a href="/services/#personal-rehabilitative-training"
+                  >Personal & Rehabilitative Training</a
+                >
+              </li>
+              <li>
+                <a href="/services/#shotokan-karate">Shotokan Karate</a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="mt-8 block text-sm text-zinc-600 dark:text-zinc-400 md:hidden"
+          >
+            &copy; {new Date().getFullYear()} Bespoke Fitness. All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
+
+<script is:inline>
+  const theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+  window.localStorage.setItem("theme", theme);
+</script>

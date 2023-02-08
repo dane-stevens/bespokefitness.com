@@ -1,18 +1,192 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "@astrojs/image/components";
+import { Picture } from "@astrojs/image/components";
 import Hero from "~/components/Hero.astro";
-import image from "~/assets/images/IMG_9083.jpeg";
-import H1 from "~/components/H1.astro";
 import Body from "~/components/Body.astro";
+import image from "~/assets/images/photodune-299026-neck-massage-m.jpg";
+import SubNav from "~/components/SubNav.astro";
+import H1 from "~/components/H1.astro";
+import ServiceCard from "~/components/ServiceCard.astro";
+import { Image } from "@astrojs/image/components";
+import rmtImage from "~/assets/images/IMG_0599.jpeg";
+import osteoImage from "~/assets/images/doctor-massages-man-hospital.jpg";
+import trainingImage from "~/assets/images/close-up-man-exercising-with-dumbbells.jpg";
+import karateImage from "~/assets/images/Masaka-logo4.jpg";
+import ServiceCardGrid from "~/components/ServiceCardGrid.astro";
+import HR from "~/components/HR.astro";
+import P from "~/components/P.astro";
 ---
 
 <Layout title="Personal Training & Massage Therapy - Bespoke Fitness">
   <Hero
     title="Services"
-    subtitle="Massage Therapy - Manual Osteopathy - Personal / Rehabilitative Training - Shotokan Karate"
+    subtitle="Registered Massage Therapy | Manual Osteopathy | Personal & Rehabilitative Training | Shotokan Karate"
   >
-    <Image src={image} width={1920} alt="Massage therapy" />
+    <Picture
+      src={image}
+      widths={[400, 800, 1200, 1920]}
+      sizes="100vw"
+      alt="Massage therapy"
+    />
   </Hero>
-  <Body>Coming soon...</Body>
+  <SubNav
+    links={[
+      {
+        href: "#registered-massage-therapy",
+        title: "Registered Massage Therapy",
+      },
+      {
+        href: "#manual-osteopathy",
+        title: "Manual Osteopathy",
+      },
+      {
+        href: "#personal-rehabilitative-training",
+        title: "Personal & Rehabilitative Training",
+      },
+      {
+        href: "#shotokan-karate",
+        title: "Shotokan Karate",
+      },
+    ]}
+  />
+  <Body>
+    <ServiceCardGrid
+      id="registered-massage-therapy"
+      title="Registered Massage Therapy"
+      href={import.meta.env.PUBLIC_BOOKING_URL}
+    >
+      <Picture
+        src={rmtImage}
+        alt="RMT Massage"
+        widths={[400, 800]}
+        slot="image"
+      />
+      <div slot="body">
+        <P>
+          Massage is one of the most ancient forms of healing. The first
+          writings on massage showed up around 2000 BC. The ancient Greeks and
+          Romans used massage to maintain health and promote healing.
+        </P>
+        <P>
+          Therapeutic massage is an important part of your health maintenance
+          plan, by:
+        </P>
+        <ul class="list-disc py-4 pl-10">
+          <li>Reducing or eliminating pain</li>
+          <li>Improving joint mobility</li>
+          <li>Improving circulation</li>
+          <li>Improving immune system functioning</li>
+          <li>Increasing lymphatic drainage</li>
+          <li>Reducing depression and anxiety</li>
+          <li>Reducing tension within muscles</li>
+          <li>Increasing body awareness</li>
+        </ul>
+      </div>
+    </ServiceCardGrid>
+    <HR />
+    <ServiceCardGrid
+      id="manual-osteopathy"
+      title="Manual Osteopathy"
+      href={import.meta.env.PUBLIC_BOOKING_URL}
+      swap
+    >
+      <Picture
+        src={osteoImage}
+        alt="Manual Osteopathy"
+        widths={[400, 800]}
+        slot="image"
+      />
+      <div slot="body">
+        <P>
+          Osteopathy is a form of drug free non-invasive manual medicine that
+          focuses on total body health by treating and strengthening the
+          musculoskeletal framework, which includes the joints, muscles, spine &
+          viscera.
+        </P>
+        <P>
+          This unique holistic (whole body) approach to health care was
+          established by Dr Andrew Taylor Still in the late 1800’s, with the aim
+          of using manual hands on techniques to improve circulation and correct
+          altered biomechanics, without the use of drugs.
+        </P>
+      </div>
+    </ServiceCardGrid>
+    <HR />
+    <ServiceCardGrid
+      id="personal-rehabilitative-training"
+      title="Personal & Rehabilitative Training"
+      href={`sms:+${
+        import.meta.env.PUBLIC_PHONE_NUMBER
+      }?body=Hello%2C%20I%20am%20looking%20for%20information%20about%20personal%20training.`}
+      contactUs
+      buttonText="Send a text"
+    >
+      <Picture
+        src={trainingImage}
+        alt="Personal & Rehabilitative Training"
+        widths={[400, 800]}
+        slot="image"
+      />
+      <div slot="body">
+        <P>
+          Personal training is one of the best means to help you effectively
+          achieve your goals. Whether you need assistance with motivation, sport
+          specific conditioning, weight loss, or simply want to maintain or
+          improve your overall health, our personal training program is the
+          safest and most effective way to achieve your health and fitness
+          goals.
+        </P>
+        <P>
+          At Bespoke Fitness we will motivate, encourage and challenge you,
+          ensuring your training experience is both challenging and above all
+          else fun.
+        </P>
+      </div>
+    </ServiceCardGrid>
+    <HR />
+    <ServiceCardGrid
+      id="shotokan-karate"
+      title="Shotokan Karate"
+      buttonText="Send a text"
+      href={`sms:+${
+        import.meta.env.PUBLIC_PHONE_NUMBER
+      }?body=Hello%2C%20I%20am%20looking%20for%20information%20about%20Shotokan%20Karate.`}
+      contactUs
+      swap
+    >
+      <Picture
+        src={karateImage}
+        alt="Shotokan Karate"
+        widths={[400, 800]}
+        slot="image"
+      />
+      <div slot="body">
+        <P>We are a fledgling club training twice a week in Shotokan Karate.</P>
+      </div>
+    </ServiceCardGrid>
+  </Body>
+  <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <ServiceCard title="Registered Massage Therapy">
+        <Picture src={rmtImage} alt="RMT Massage" widths={[400, 800]} />
+      </ServiceCard>
+
+      <ServiceCard title="Manual Osteopathy">
+        <Picture src={osteoImage} alt="Manual Osteopathy" widths={[400, 800]} />
+      </ServiceCard>
+
+      <ServiceCard title="Personal & Rehabilitative Training">
+        <Picture
+          src={trainingImage}
+          alt="Personal Training"
+          widths={[400, 800]}
+        />
+      </ServiceCard>
+      <ServiceCard title="Shotokan Karate">
+        <Picture
+          src={karateImage}
+          alt="Muskoka Shotokan Karate"
+          widths={[400, 800]}
+        />
+      </ServiceCard>
+    </div> -->
 </Layout>

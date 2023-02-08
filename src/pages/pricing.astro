@@ -20,12 +20,12 @@ import SubNav from "~/components/SubNav.astro";
   <SubNav
     links={[
       {
-        href: "#massage-therapy-and-osteopathy",
-        title: "Massage & Osteopathy",
+        href: "#registered-massage-therapy-and-osteopathy",
+        title: "RMT & Osteopathy",
       },
       {
         href: "#personal-rehabilitative-training",
-        title: "Personal / Rehabilitative Training",
+        title: "Personal & Rehabilitative Training",
       },
       {
         href: "#in-home-massage-therapy",
@@ -35,9 +35,9 @@ import SubNav from "~/components/SubNav.astro";
   />
   <Body>
     <PriceContainer
-      id="massage-therapy-and-osteopathy"
+      id="registered-massage-therapy-and-osteopathy"
       client:load
-      title="Massage Therapy & Manual Osteopathy"
+      title="Registered Massage Therapy & Manual Osteopathy"
       durations={[30, 45, 60, 75, 90]}
       defaultDurationIndex={2}
       prices={[
@@ -45,12 +45,13 @@ import SubNav from "~/components/SubNav.astro";
         [60, 75, 90, 110, 130],
         [55, 70, 85, 100, 120],
       ]}
+      href={import.meta.env.PUBLIC_BOOKING_URL}
     />
     <HR />
     <PriceContainer
       id="personal-rehabilitative-training"
       client:load
-      title="Personal / Rehabilitative Training"
+      title="Personal & Rehabilitative Training"
       durations={[30, 45, 60]}
       defaultDurationIndex={1}
       prices={[
@@ -58,11 +59,15 @@ import SubNav from "~/components/SubNav.astro";
         [55, 65, 85],
         [50, 60, 75],
       ]}
+      href={`sms:+${
+        import.meta.env.PUBLIC_PHONE_NUMBER
+      }?body=Hello%2C%20I%20am%20looking%20for%20information%20about%20personal%20training.`}
+      contactUs={true}
     />
     <HR />
     <Heading id="in-home-massage-therapy" title="In-home Massage Therapy" />
     <div
-      class="grid md:grid-cols-2 gap-8 md:gap-16 mt-8 max-w-screen-lg mx-auto"
+      class="mx-auto mt-8 grid max-w-screen-lg gap-8 md:grid-cols-2 md:gap-16"
     >
       <Price
         title="0-20 Minutes"
@@ -70,9 +75,9 @@ import SubNav from "~/components/SubNav.astro";
         hour
         price={145}
         href={`sms:+${
-          import.meta.env.PHONE_NUMBER
+          import.meta.env.PUBLIC_PHONE_NUMBER
         }?body=Hello%2C%20I%20am%20looking%20for%20information%20about%20in-home%20massage%20therapy.`}
-        buttonText="Send a text"
+        contactUs
       />
       <Price
         title="21-60 Minutes"
@@ -80,9 +85,9 @@ import SubNav from "~/components/SubNav.astro";
         hour
         customPrice={"$150-190"}
         href={`sms:+${
-          import.meta.env.PHONE_NUMBER
+          import.meta.env.PUBLIC_PHONE_NUMBER
         }?body=Hello%2C%20I%20am%20looking%20for%20information%20about%20in-home%20massage%20therapy.`}
-        buttonText="Send a text"
+        contactUs
       />
     </div>
   </Body>

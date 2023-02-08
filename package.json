@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/image": "^0.14.0",
     "@astrojs/tailwind": "^3.0.1",
+    "@iconify/react": "^4.1.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "astro": "^2.0.6",
@@ -24,7 +25,9 @@
   },
   "devDependencies": {
     "@astrojs/react": "^1.2.2",
+    "prettier": "^2.8.4",
     "prettier-plugin-astro": "^0.7.2",
+    "prettier-plugin-tailwindcss": "^0.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
