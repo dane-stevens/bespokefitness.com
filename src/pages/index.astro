@@ -4,6 +4,8 @@ import { Image } from "@astrojs/image/components";
 import Hero from "~/components/Hero.astro";
 import image from "~/assets/images/IMG_9083.jpeg";
 import H1 from "~/components/H1.astro";
+import Body from "~/components/Body.astro";
+import { Testimonials } from "~/components/Testimonials";
 ---
 
 <Layout title="Personal Training & Massage Therapy - Bespoke Fitness">
@@ -13,4 +15,13 @@ import H1 from "~/components/H1.astro";
   >
     <Image src={image} width={1920} alt="Massage therapy" />
   </Hero>
+  <Body>
+    The whole ethos and concept of Bespoke Fitness revolves around the
+    individuality and personal requirements of each client. We do not offer
+    quick fixes, magical weight loss solutions or the latest fitness gimmick,
+    fad or cookie cutter training program. We do however promote a positive
+    nurturing environment, integrating the physical and intellectual aspects of
+    lifestyle empowerment.
+    <Testimonials client:load />
+  </Body>
 </Layout>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FormatPhone } from "./FormatPhone";
 
-const buttonStyles = "rounded px-3 py-2 border";
+const buttonStyles = "px-3 py-2";
 export function PriceContainer({
   id,
   title,
@@ -27,7 +27,7 @@ export function PriceContainer({
       <div className="mx-auto max-w-xl">
         <div className="flex justify-center">
           <div className="inline-block">
-            <div className="flex gap-2 rounded bg-zinc-200 p-2 dark:bg-zinc-800/40">
+            <div className="flex overflow-hidden rounded bg-zinc-200 dark:bg-zinc-800">
               {durations.map((durationItem, i) => {
                 return (
                   <DurationButton
@@ -98,7 +98,7 @@ export function Price({
   contactUs?: boolean;
 }) {
   return (
-    <div className="trasition-all rounded bg-zinc-200 py-16 px-8 text-center duration-150 hover:scale-110 dark:bg-zinc-800">
+    <div className="trasition-all rounded  border border-zinc-200 py-16 px-8 text-center shadow duration-150 hover:scale-110 dark:border-zinc-800 dark:bg-zinc-800">
       <div className="text-2xl text-red-600 dark:text-red-300">{title}</div>
       {subtitle && (
         <div className="mt-2 text-sm uppercase tracking-wider text-zinc-400">
@@ -140,10 +140,12 @@ function DurationButton({ index, currentDuration, duration, onSetDuration }) {
     <button
       type="button"
       onClick={() => onSetDuration && onSetDuration(index)}
-      className={`${buttonStyles} ${
+      className={`${
+        index > 0 ? "border-l border-black/10 dark:border-white/10" : ""
+      } ${buttonStyles} ${
         currentDuration === index
-          ? "border-red-700 bg-red-700"
-          : "border-zinc-700/60 hover:bg-zinc-700"
+          ? "bg-red-700 text-zinc-100"
+          : "hover:bg-zinc-400 dark:hover:bg-zinc-700"
       }`}
     >
       {duration} min
