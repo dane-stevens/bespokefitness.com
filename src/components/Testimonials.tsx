@@ -20,9 +20,10 @@ const TESTIMONIALS = [
   ["Fantastic osteopath. Would highly recommend!", "Clayton E"],
 ];
 
-shuffle(TESTIMONIALS);
 export function Testimonials() {
   const [index, setIndex] = useState(0);
+  const [testimonials, setTestimonials] = useState(TESTIMONIALS);
+
   useInterval(() => {
     setIndex(index === TESTIMONIALS.length - 1 ? 0 : index + 1);
   }, 1000 * 10);
@@ -42,7 +43,7 @@ export function Testimonials() {
       {/* <div className="absolute -bottom-[48px] -right-[48px] h-[96px] w-[96px] text-center text-[96px] text-zinc-300  dark:text-zinc-600">
         "
       </div> */}
-      {TESTIMONIALS.map((testimonial, i) => {
+      {testimonials.map((testimonial, i) => {
         return (
           <div
             key={i}
@@ -52,7 +53,8 @@ export function Testimonials() {
           >
             <div>
               <blockquote
-                className={`text-center  italic ${
+                // className="text-center text-sm italic"
+                className={`text-center italic ${
                   testimonial[0].length > 300
                     ? "text-sm"
                     : testimonial[0].length > 200

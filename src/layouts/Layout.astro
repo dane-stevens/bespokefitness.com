@@ -17,6 +17,8 @@ const linkStyles =
   "text-sm md:text-md md:flex items-center gap-2 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 px-4 py-2 leading-6 group";
 const iconStyles = "w-6 h-6 group-hover:text-red-400 mx-auto";
 
+const footerLinkStyles = "block py-2 hover:text-zinc-400";
+
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.split("/")[1]; // remove the first "/"
 ---
@@ -210,6 +212,7 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.facebook.com/bespokefitnessmuskoka"
+                aria-label="Facebook profile"
                 ><Icon name="mdi:facebook" class="w-6 h-6 text-zinc-500" /></a
               >
             </div>
@@ -220,30 +223,38 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
             </div>
           </div>
           <div>
-            <div class="text-sm uppercase text-zinc-500">Hours</div>
+            <div class="text-sm uppercase text-zinc-400">Hours</div>
             <ul>
-              <li class="whitespace-nowrap">Tuesday - Friday: 9am - 5pm</li>
-              <li class="whitespace-nowrap">Saturday: 10am - 1pm</li>
+              <li class="whitespace-nowrap py-2">
+                Tuesday - Friday: 9am - 5pm
+              </li>
+              <li class="whitespace-nowrap py-2">Saturday: 10am - 1pm</li>
             </ul>
           </div>
           <div>
-            <div class="text-sm uppercase text-zinc-500">Services</div>
+            <div class="text-sm uppercase text-zinc-400">Services</div>
             <ul>
               <li>
-                <a href="/services/#registered-massage-therapy"
-                  >Registered Massage Therapy</a
+                <a
+                  href="/services/#registered-massage-therapy"
+                  class={footerLinkStyles}>Registered Massage Therapy</a
                 >
               </li>
               <li>
-                <a href="/services/#manual-osteopathy">Manual Osteopathy</a>
-              </li>
-              <li>
-                <a href="/services/#personal-rehabilitative-training"
-                  >Personal & Rehabilitative Training</a
+                <a href="/services/#manual-osteopathy" class={footerLinkStyles}
+                  >Manual Osteopathy</a
                 >
               </li>
               <li>
-                <a href="/services/#shotokan-karate">Shotokan Karate</a>
+                <a
+                  href="/services/#personal-rehabilitative-training"
+                  class={footerLinkStyles}>Personal & Rehabilitative Training</a
+                >
+              </li>
+              <li>
+                <a href="/services/#shotokan-karate" class={footerLinkStyles}
+                  >Shotokan Karate</a
+                >
               </li>
             </ul>
           </div>
