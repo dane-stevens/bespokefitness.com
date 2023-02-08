@@ -53,7 +53,13 @@ export function Testimonials() {
             <div>
               <blockquote
                 className={`text-center  italic ${
-                  testimonial[0].length > 60
+                  testimonial[0].length > 300
+                    ? "text-sm"
+                    : testimonial[0].length > 200
+                    ? "text-md"
+                    : testimonial[0].length > 120
+                    ? "text-lg md:text-xl lg:text-2xl"
+                    : testimonial[0].length > 60
                     ? "text-xl md:text-2xl lg:text-3xl"
                     : "text-2xl md:text-3xl lg:text-5xl"
                 }`}
