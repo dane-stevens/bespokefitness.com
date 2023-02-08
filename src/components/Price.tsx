@@ -72,7 +72,7 @@ export function PriceContainer({
 
 export function Heading({ title, id }) {
   return (
-    <h2 className="mb-16 -mt-16 pt-16 text-center text-4xl" id={id}>
+    <h2 className="mb-16 -mt-32 pt-32 text-center text-4xl" id={id}>
       {title}
     </h2>
   );
