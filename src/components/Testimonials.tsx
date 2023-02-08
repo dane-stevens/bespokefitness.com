@@ -6,9 +6,18 @@ const TESTIMONIALS = [
   ["Darren is a great guy and quite literally hits the spots.", "Iain S"],
   ["Darren is a first rate trainer & therapist.", "Leanne L"],
   [
-    "Darren is extremely knowledgeable and his experience is evident in how he is able to find the exact spot that needs to be released.",
+    "Darren is extremely knowledgeable and his experience is evident in his ability to locate the exact trigger point that needs to be released.",
     "Dane S",
   ],
+  [
+    "I have seen an Osteopath for many years.  I am new to Gravenhurst and was somewhat hesitant about trying someone new here; believing that no one would come close to my Osteopath in Whitby.  To my pleasant surprise, I found Darren to be a terrific practitioner.   He is a healer- and I really hope you have an opportunity to be treated by him.",
+    "Diane M",
+  ],
+  [
+    "Only one visit so far but was great had no pain in areas looked at since the visit 😄 Going back for more👍 …",
+    "Ruby C",
+  ],
+  ["Fantastic osteopath. Would highly recommend!", "Clayton E"],
 ];
 
 shuffle(TESTIMONIALS);
