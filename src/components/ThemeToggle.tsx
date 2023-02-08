@@ -22,6 +22,7 @@ export default function ThemeToggle() {
       onClick={handleClick}
       type="button"
       className="flex h-full items-center px-4"
+      aria-label="Switch theme"
     >
       <div className={`relative h-4 w-[30px] rounded-full bg-zinc-700`}>
         <Icon

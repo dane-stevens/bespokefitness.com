@@ -6,9 +6,10 @@ import { FormatPhone } from "~/components/FormatPhone";
 
 export interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 const topLinkStyles =
   "text-xs md:text-md md:flex items-center gap-2   px-4 py-1 md:py-2 leading-6 group text-zinc-300 hover:bg-zinc-800";
 const topIconStyles = "w-6 h-6 group-hover:text-red-400 mx-auto text-zinc-500";
@@ -25,6 +26,11 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content={description ||
+        `Muskoka's Premier Boutique Fitness Studio, Registered Massage Therappy & Manual Osteopathy Clinic`}
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta http-equiv="Content-Language" content="en" />
     <meta name="generator" content={Astro.generator} />
@@ -46,7 +52,7 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
             class={`${topLinkStyles} md:hidden`}
             ><Icon name="mdi:phone" class={topIconStyles} /><span
               class="hidden md:inline">Call us</span
-            ><span class="inline tracking-wide text-zinc-500 md:hidden"
+            ><span class="inline tracking-wide text-zinc-300 md:hidden"
               >Call</span
             ></a
           >
@@ -55,7 +61,7 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
             class={`${topLinkStyles} md:hidden`}
             ><Icon name="mdi:message-reply-text" class={topIconStyles} /><span
               class="hidden md:inline">Text us</span
-            ><span class="inline tracking-wide text-zinc-500 md:hidden"
+            ><span class="inline tracking-wide text-zinc-300 md:hidden"
               >Text</span
             ></a
           >
@@ -66,7 +72,7 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
             class={topLinkStyles}
             ><Icon name="mdi:location" class={topIconStyles} /><span
               class="hidden md:inline">Get directions</span
-            ><span class="inline tracking-wide text-zinc-500 md:hidden"
+            ><span class="inline tracking-wide text-zinc-300 md:hidden"
               >Directions</span
             ></a
           >
@@ -79,7 +85,7 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
         class="mx-auto max-w-screen-xl items-center justify-center p-4 md:p-8 lg:flex lg:h-[80px] lg:justify-between"
       >
         <div class="flex justify-center">
-          <a href="/" class="block"
+          <a href="/" class="block" aria-label="Bespoke fitness"
             ><Logo
               className="h-[60px] w-[200px] mt-2"
               fill="fill-black/70 dark:fill-white"
@@ -188,7 +194,7 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
           class="grid justify-evenly gap-16 text-center md:flex md:text-left"
         >
           <div>
-            <a href="/" class="inline-block"
+            <a href="/" class="inline-block" aria-label="Bespoke fitness"
               ><Logo
                 className="h-[40px] w-[130px] mt-2"
                 fill="fill-red-500"
@@ -214,14 +220,14 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
             </div>
           </div>
           <div>
-            <h4 class="text-sm uppercase text-zinc-500">Hours</h4>
+            <div class="text-sm uppercase text-zinc-500">Hours</div>
             <ul>
               <li class="whitespace-nowrap">Tuesday - Friday: 9am - 5pm</li>
               <li class="whitespace-nowrap">Saturday: 10am - 1pm</li>
             </ul>
           </div>
           <div>
-            <h4 class="text-sm uppercase text-zinc-500">Services</h4>
+            <div class="text-sm uppercase text-zinc-500">Services</div>
             <ul>
               <li>
                 <a href="/services/#registered-massage-therapy"
