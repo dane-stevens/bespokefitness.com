@@ -21,16 +21,18 @@ export default function ThemeToggle() {
     <button
       onClick={handleClick}
       type="button"
-      className={`relative h-4 w-full rounded-full bg-zinc-700`}
+      className="flex h-full items-center px-4"
     >
-      <Icon
-        icon={theme === "dark" ? "ri:moon-fill" : "ri:sun-fill"}
-        className={`-mt-[4px] h-[24px] w-[24px] transition-all duration-100 ${
-          theme === "dark"
-            ? "ml-[11px] text-blue-300 hover:text-blue-400"
-            : "-ml-[4px] text-yellow-400 hover:text-yellow-500"
-        }`}
-      />
+      <div className={`relative h-4 w-[30px] rounded-full bg-zinc-700`}>
+        <Icon
+          icon={theme === "dark" ? "ri:moon-fill" : "ri:sun-fill"}
+          className={`-mt-[4px] h-[24px] w-[24px] transition-all duration-100 ${
+            theme === "dark"
+              ? "ml-[11px] text-blue-300 hover:text-blue-400"
+              : "-ml-[4px] text-yellow-400 hover:text-yellow-500"
+          }`}
+        />
+      </div>
     </button>
   );
 }

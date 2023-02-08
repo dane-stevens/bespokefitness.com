@@ -32,8 +32,8 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
   </head>
   <body class="bg-zinc-50 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
     <header class="border-b border-zinc-300 dark:border-zinc-800">
-      <div class="flex justify-between bg-zinc-900 px-4 dark:bg-zinc-800">
-        <div class="w-[30px]"></div>
+      <div class="flex justify-between bg-zinc-900 dark:bg-zinc-800">
+        <div class="px-4"><div class="w-[30px]"></div></div>
         <div class="flex items-center justify-center gap-8">
           <div
             class={`items-center gap-2 text-xs  px-4 py-1 md:py-2 leading-6 text-zinc-300 hidden md:flex`}
@@ -71,7 +71,7 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
             ></a
           >
         </div>
-        <div class="flex w-[30px] items-center">
+        <div class="flex items-center">
           <ThemeToggle client:load />
         </div>
       </div>
