@@ -3,8 +3,12 @@ import { useState } from "react";
 import { useInterval } from "~/hooks/interval";
 
 const TESTIMONIALS = [
-  ["Darren is a great guy and quite literally hits the spots..", "Iain S"],
+  ["Darren is a great guy and quite literally hits the spots.", "Iain S"],
   ["Darren is a first rate trainer & therapist.", "Leanne L"],
+  [
+    "Darren is extremely knowledgeable and his experience is evident in how he is able to find the exact spot that needs to be released.",
+    "Dane S",
+  ],
 ];
 
 shuffle(TESTIMONIALS);
@@ -34,11 +38,17 @@ export function Testimonials() {
           <div
             key={i}
             className={`${
-              index === i ? "opacity-0" : "opacity-1"
+              index === i ? "opacity-1" : "opacity-0"
             } absolute top-0 bottom-0 left-0 right-0 m-8 flex items-center justify-center transition-all duration-1000 md:m-16`}
           >
             <div>
-              <blockquote className="text-center text-2xl italic md:text-3xl lg:text-5xl">
+              <blockquote
+                className={`text-center  italic ${
+                  testimonial[0].length > 60
+                    ? "text-xl md:text-2xl lg:text-3xl"
+                    : "text-2xl md:text-3xl lg:text-5xl"
+                }`}
+              >
                 {testimonial[0]}
               </blockquote>
               <cite className="mt-8 block text-center">- {testimonial[1]}</cite>
