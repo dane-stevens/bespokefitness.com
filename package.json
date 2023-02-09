@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.14.0",
+    "@astrojs/sitemap": "^1.0.1",
     "@astrojs/tailwind": "^3.0.1",
     "@iconify/react": "^4.1.0",
     "@types/react": "^18.0.27",

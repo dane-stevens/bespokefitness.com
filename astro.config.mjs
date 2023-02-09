@@ -8,6 +8,10 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 
 // https://astro.build/config
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [react(), image(), tailwind()]
+  site: "https://bespokefitness.com",
+  integrations: [react(), image(), tailwind(), sitemap()],
 });
