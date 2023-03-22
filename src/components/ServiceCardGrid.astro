@@ -38,6 +38,7 @@ const { id, title, subtitle, swap, buttonText, href, contactUs } = Astro.props;
     }
 
     <a
+      target="_blank"
       href={href}
       class={`mt-8 inline-block rounded bg-red-700 px-4 py-2 text-zinc-100 hover:bg-red-800 ${
         contactUs ? "md:hidden" : ""

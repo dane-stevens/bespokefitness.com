@@ -124,6 +124,7 @@ export function Price({
       )}
 
       <a
+        target="_blank"
         href={href}
         className={`mt-8 inline-block rounded bg-red-700 px-4 py-2 text-zinc-100 hover:bg-red-800 ${
           contactUs ? "md:hidden" : ""
