@@ -12,6 +12,9 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://bespokefitness.com",
+  experimental: {
+    assets: true,
+  },
+  site: "https://bespokefitness.com/",
   integrations: [react(), image(), tailwind(), sitemap()],
 });

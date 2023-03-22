@@ -5,8 +5,8 @@ import Hero from "~/components/Hero.astro";
 import Body from "~/components/Body.astro";
 import image from "~/assets/images/photodune-299026-neck-massage-m.jpg";
 import SubNav from "~/components/SubNav.astro";
-import H1 from "~/components/H1.astro";
-import ServiceCard from "~/components/ServiceCard.astro";
+// import H1 from "~/components/H1.astro";
+// import ServiceCard from "~/components/ServiceCard.astro";
 import { Image } from "@astrojs/image/components";
 import rmtImage from "~/assets/images/IMG_0599.jpeg";
 import osteoImage from "~/assets/images/doctor-massages-man-hospital.jpg";
@@ -161,11 +161,18 @@ import P from "~/components/P.astro";
         slot="image"
       />
       <div slot="body">
-        <P>We are a fledgling club training twice a week in Shotokan Karate.</P>
-        <h3>Training times</h3>
+        <P>
+          Muskoka Shotokan Karate Academy trains out of Muskoka Martial Arts
+          every Tuesday & Thursday evening.
+        </P>
+        <P>
+          We practice the traditional aspects of kata, Kihon & Kumite with an
+          added emphasis on the more practical applications of techniques.
+        </P>
+        <h3 class="font-bold">Training times</h3>
         <ul>
-          <li><strong>Juniors</strong>: Tuesday & Thursday 5pm - 6pm</li>
-          <li><strong>Adults</strong>: Tuesday & Thursday 6pm - 8pm</li>
+          <li><strong>Juniors</strong>: Tuesday & Thursday 5:00pm - 5:50pm</li>
+          <li><strong>Adults</strong>: Tuesday & Thursday 6:00pm - 6:50pm</li>
         </ul>
       </div>
     </ServiceCardGrid>

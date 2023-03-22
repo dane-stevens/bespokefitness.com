@@ -1,4 +1,6 @@
 ---
+import { FormatPhone } from "./FormatPhone";
+
 const { id, title, subtitle, swap, buttonText, href, contactUs } = Astro.props;
 ---
 
@@ -23,6 +25,28 @@ const { id, title, subtitle, swap, buttonText, href, contactUs } = Astro.props;
   <div class="pt-16 text-center">
     {
       contactUs && (
+        <>
+          <div class="mt-8 -mb-6 text-xs uppercase text-zinc-600">
+            Contact Us
+          </div>
+
+          <div class="mt-8 hidden md:block">
+            Call or text: <FormatPhone />
+          </div>
+        </>
+      )
+    }
+
+    <a
+      href={href}
+      class={`mt-8 inline-block rounded bg-red-700 px-4 py-2 text-zinc-100 hover:bg-red-800 ${
+        contactUs ? "md:hidden" : ""
+      }`}
+    >
+      {contactUs ? "Send a text" : "Book now"}
+    </a>
+    <!-- {
+      contactUs && (
         <div class="mb-2 text-xs uppercase text-zinc-700">Contact us</div>
       )
     }
@@ -31,6 +55,6 @@ const { id, title, subtitle, swap, buttonText, href, contactUs } = Astro.props;
       class="inline-block rounded bg-red-700 px-8 py-4 text-lg text-zinc-100 hover:bg-red-800"
     >
       {buttonText || "Book now"}
-    </a>
+    </a> -->
   </div>
 </div>

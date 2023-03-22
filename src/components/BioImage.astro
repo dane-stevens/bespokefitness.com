@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import image from "~/assets/images/IMG_0094.jpeg";
+import H1 from "./H1.astro";
+---
+
+<section>
+  <div class="my-16 grid gap-8 md:grid-cols-2">
+    <div class="overflow-hidden rounded">
+      <Image src={image} width="800" alt="Darren Wiggington" />
+    </div>
+    <div>
+      <H1>Darren Wiggington</H1>
+      <ul class="list-disc p-6">
+        <li>
+          30+ years health & wellness, fitness & martial arts experience. Owner
+          operator Bespoke Fitness, founded 2007
+        </li>
+        <li>RMT, Manual Osteopath, Personal trainer & karate coach</li>
+        <li>
+          Client base ranging from octogenarians to pro athletes & UFC fighters
+        </li>
+        <li>Ex-Military policeman, Spec Ops bodyguard & CQC instructor</li>
+        <li>
+          Former National Football champion, 3 times team kata National champion
+          & competitive member of Military karate team
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

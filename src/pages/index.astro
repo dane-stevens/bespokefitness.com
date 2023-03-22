@@ -3,9 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "@astrojs/image/components";
 import Hero from "~/components/Hero.astro";
 import image from "~/assets/images/IMG_9083.jpeg";
-import H1 from "~/components/H1.astro";
 import Body from "~/components/Body.astro";
 import { Testimonials } from "~/components/Testimonials";
+import BioImage from "~/components/BioImage.astro";
+import HR from "~/components/HR.astro";
 ---
 
 <Layout
@@ -24,6 +25,10 @@ import { Testimonials } from "~/components/Testimonials";
     fad or cookie cutter training program. We do however promote a positive
     nurturing environment, integrating the physical and intellectual aspects of
     lifestyle empowerment.
+
     <Testimonials client:load />
+
+    <HR />
+    <BioImage />
   </Body>
 </Layout>

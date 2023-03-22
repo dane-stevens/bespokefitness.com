@@ -13,11 +13,11 @@
   "dependencies": {
     "@astrojs/image": "^0.14.0",
     "@astrojs/sitemap": "^1.0.1",
-    "@astrojs/tailwind": "^3.0.1",
+    "@astrojs/tailwind": "^3.1.1",
     "@iconify/react": "^4.1.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
-    "astro": "^2.0.6",
+    "astro": "^2.1.5",
     "astro-icon": "^0.8.0",
     "astro-img": "^0.0.1",
     "iconify-icon": "^1.0.3",
@@ -25,7 +25,7 @@
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
-    "@astrojs/react": "^1.2.2",
+    "@astrojs/react": "^2.1.0",
     "prettier": "^2.8.4",
     "prettier-plugin-astro": "^0.7.2",
     "prettier-plugin-tailwindcss": "^0.2.2",

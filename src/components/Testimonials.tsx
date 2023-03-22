@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useInterval } from "~/hooks/interval";
 
 const TESTIMONIALS = [
@@ -23,6 +23,10 @@ const TESTIMONIALS = [
 export function Testimonials() {
   const [index, setIndex] = useState(0);
   const [testimonials, setTestimonials] = useState(TESTIMONIALS);
+
+  useEffect(() => {
+    setIndex(Math.floor(Math.random() * TESTIMONIALS.length));
+  }, []);
 
   useInterval(() => {
     setIndex(index === TESTIMONIALS.length - 1 ? 0 : index + 1);
