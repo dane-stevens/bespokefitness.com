@@ -43,7 +43,7 @@ export function PriceContainer({
           </div>
         </div>
       </div>
-      <div className="mx-auto mt-8 grid max-w-screen-lg gap-8 md:grid-cols-3 md:gap-16">
+      <div className="mx-auto mt-8 grid max-w-screen-lg gap-8 md:grid-cols-1 md:gap-16">
         <Price
           title="Standard"
           price={prices[0][duration]}
@@ -51,7 +51,7 @@ export function PriceContainer({
           href={href}
           contactUs={contactUs}
         />
-        <Price
+        {/* <Price
           title="EMS"
           price={prices[1][duration]}
           duration={durations[duration]}
@@ -64,7 +64,7 @@ export function PriceContainer({
           duration={durations[duration]}
           href={href}
           contactUs={contactUs}
-        />
+        /> */}
       </div>
     </div>
   );
