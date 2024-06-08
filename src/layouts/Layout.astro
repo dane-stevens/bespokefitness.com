@@ -23,7 +23,6 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.split("/")[1]; // remove the first "/"
 ---
 
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -115,6 +114,28 @@ const currentPath = pathname.split("/")[1]; // remove the first "/"
               class={`border-b-2 mt-[2px]  py-1 md:py-0 ${
                 currentPath === "" ? "border-red-400" : "border-transparent"
               }`}>Home</span
+            ></a
+          >
+          <a
+            href="/schedule/"
+            class={`${
+              currentPath === "schedule"
+                ? "border-red-400"
+                : "border-transparent"
+            } ${linkStyles}`}
+            ><Icon
+              name="tabler:calendar"
+              class={`${
+                currentPath === "schedule"
+                  ? "text-red-400"
+                  : "text-zinc-400 dark:text-zinc-600"
+              } ${iconStyles}`}
+            /><span
+              class={`border-b-2 mt-[2px]  py-1 md:py-0 ${
+                currentPath === "schedule"
+                  ? "border-red-400"
+                  : "border-transparent"
+              }`}>Schedule</span
             ></a
           >
           <a

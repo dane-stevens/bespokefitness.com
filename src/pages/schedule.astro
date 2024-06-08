@@ -1,0 +1,85 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Picture } from "@astrojs/image/components";
+import Hero from "~/components/Hero.astro";
+import Body from "~/components/Body.astro";
+import H1 from "~/components/H1.astro";
+import image from "~/assets/images/campfirepunch-2-scaled.jpg";
+import SubNav from "~/components/SubNav.astro";
+// import H1 from "~/components/H1.astro";
+// import ServiceCard from "~/components/ServiceCard.astro";
+import { Image } from "@astrojs/image/components";
+import rmtImage from "~/assets/images/IMG_0599.jpeg";
+import osteoImage from "~/assets/images/doctor-massages-man-hospital.jpg";
+import trainingImage from "~/assets/images/close-up-man-exercising-with-dumbbells.jpg";
+import karateImage from "~/assets/images/Masaka-logo4.jpg";
+import ServiceCardGrid from "~/components/ServiceCardGrid.astro";
+import HR from "~/components/HR.astro";
+import P from "~/components/P.astro";
+---
+
+<Layout title="Personal Training & Massage Therapy - Bespoke Fitness">
+  <Hero
+    title="Schedule"
+    subtitle="Muskoka's Premier Boutique Fitness Studio, Registered Massage Therapy & Manual Osteopathy Clinic"
+  >
+    <Picture
+      src={image}
+      widths={[400, 800, 1200, 1920]}
+      sizes="100vw"
+      alt="Massage therapy"
+    />
+  </Hero>
+  <!-- <SubNav -->
+  <!--   links={[ -->
+  <!--     { -->
+  <!--       href: "#registered-massage-therapy", -->
+  <!--       title: "Registered Massage Therapy", -->
+  <!--     }, -->
+  <!--     { -->
+  <!--       href: "#manual-osteopathy", -->
+  <!--       title: "Manual Osteopathy", -->
+  <!--     }, -->
+  <!--     { -->
+  <!--       href: "#personal-rehabilitative-training", -->
+  <!--       title: "Personal & Rehabilitative Training", -->
+  <!--     }, -->
+  <!--     { -->
+  <!--       href: "#shotokan-karate", -->
+  <!--       title: "Shotokan Karate", -->
+  <!--     }, -->
+  <!--   ]} -->
+  <!-- /> -->
+  <Body>
+    <H1>Schedule</H1>
+    <iframe
+      style={{ overflowX: "auto", border: "0" }}
+      src="https://calendar.google.com/calendar/embed?src=ac5fafc719ea71b621f80053dfb8df1ced1bd3d87fcf467fea6466c71c7866cb%40group.calendar.google.com&ctz=America%2FToronto&bgcolor=%23fafafa&showTitle=0&mode=WEEK&showPrint=0&showCalendars=0&showTz=0"
+      width="100%"
+      height="700"></iframe>
+  </Body>
+</Layout>
+<!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <ServiceCard title="Registered Massage Therapy">
+        <Picture src={rmtImage} alt="RMT Massage" widths={[400, 800]} />
+      </ServiceCard>
+
+      <ServiceCard title="Manual Osteopathy">
+        <Picture src={osteoImage} alt="Manual Osteopathy" widths={[400, 800]} />
+      </ServiceCard>
+
+      <ServiceCard title="Personal & Rehabilitative Training">
+        <Picture
+          src={trainingImage}
+          alt="Personal Training"
+          widths={[400, 800]}
+        />
+      </ServiceCard>
+      <ServiceCard title="Shotokan Karate">
+        <Picture
+          src={karateImage}
+          alt="Muskoka Shotokan Karate"
+          widths={[400, 800]}
+        />
+      </ServiceCard>
+    </div> -->
